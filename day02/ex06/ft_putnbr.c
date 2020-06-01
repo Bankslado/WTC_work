@@ -1,4 +1,9 @@
-void	ft_putchar(char c);
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 void	ft_putnbr(long nb)
 {
@@ -13,5 +18,5 @@ void	ft_putnbr(long nb)
 	{
 		ft_putchar('-');
 		ft_putnbr(nb * -1);
-	} 
+	}
 }
