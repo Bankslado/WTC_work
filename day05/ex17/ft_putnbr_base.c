@@ -33,17 +33,17 @@ int	ft_is_base_valid(char *base)
 
 void	ft_print_base(long long llnbr, long long radix, char *base)
 {
-	char 		result[64];
+	char 		result[21];
 	unsigned long 	index;
 
-	index = 63;
+	index = 20;
 	while (llnbr)
 	{
 		result[index] = base[llnbr % radix];
 		llnbr /= radix;
 		--index;
 	}
-	while (index < 64)
+	while (index < 21)
 	{
 		ft_putchar(result[index]);
 		++index;
