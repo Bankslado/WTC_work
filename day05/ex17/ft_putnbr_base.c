@@ -1,9 +1,4 @@
-#include <unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 int	ft_is_base_valid(char *base)
 {
@@ -31,19 +26,20 @@ int	ft_is_base_valid(char *base)
 	return (i);
 }
 
-void	ft_print_base(long long llnbr, long long radix, char *base)
+void	ft_print_base(int nbr, int radix, char *base)
 {
-	char 		result[21];
-	unsigned long 	index;
+	char result[10];
+	int index;
 
-	index = 20;
-	while (llnbr)
+	index = 9;
+	while (nbr)
 	{
-		result[index] = base[llnbr % radix];
-		llnbr /= radix;
+		result[index] = base[nbr % radix];
+		nbr /= radix;
 		--index;
 	}
-	while (index < 21)
+	++index;
+	while (index < 10)
 	{
 		ft_putchar(result[index]);
 		++index;
@@ -52,17 +48,15 @@ void	ft_print_base(long long llnbr, long long radix, char *base)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	long long radix;
-	long long llnbr;
+	int radix;
 
 	radix = ft_is_base_valid(base);
-	llnbr = nbr;
 	if (radix == 0)
 		return ;
-	if (llnbr < 0)
+	if (nbr < 0)
 	{
 		ft_putchar('-');
-		llnbr *= -1;
+		nbr *= -1;
 	}
-	ft_print_base(llnbr, radix, base);
+	ft_print_base(nbr, radix, base);
 }
