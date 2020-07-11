@@ -50,7 +50,7 @@ char	*ft_concat_params(int argc, char **argv)
 	char *str;
 
 	len = ft_get_length(argc, argv);
-	str = (char *)malloc(sizeof(char) * (len + (argc - 1)));
+	str = (char *)malloc(sizeof(*str) * (len + (argc - 1)));
 	if (str == NULL)
 		return (str);
 	ft_transform_args(argc, argv, str);

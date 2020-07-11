@@ -7,7 +7,7 @@ int	ft_ultimate_range(int **range, int min, int max)
 	i = 0;
 	if (min >= max)
 		return (0);
-	*range = (int *)malloc(sizeof(int) * (max - min));
+	*range = (int *)malloc(sizeof(i) * (max - min));
 	if (*range == NULL)
 		return (0);
 	while (min < max)
